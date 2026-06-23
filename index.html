@@ -279,7 +279,7 @@
         <article class="reveal card p-3 group flex flex-col">
           <div class="relative aspect-[9/16] rounded-xl overflow-hidden bg-mirage border border-line">
             <video class="case-video absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                   src="./case1.mp4" muted loop playsinline preload="metadata"></video>
+                   src="case1.mp4" muted loop playsinline preload="auto"></video>
             <div class="absolute top-3 left-3 z-10 inline-flex items-center rounded-full border border-blaze/50 bg-mirage/70 backdrop-blur-sm px-3 py-1 text-[11px] font-semibold text-blaze">Ниша: Автохаусы / Пригон авто</div>
             <!-- muted / interactive-video hint -->
             <div class="absolute bottom-3 right-3 z-10 grid place-items-center w-8 h-8 rounded-full border border-white/20 bg-mirage/70 backdrop-blur-sm text-white/90">
@@ -296,7 +296,7 @@
         <article class="reveal card p-3 group flex flex-col">
           <div class="relative aspect-[9/16] rounded-xl overflow-hidden bg-mirage border border-line">
             <video class="case-video absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                   src="./case2.mp4" muted loop playsinline preload="metadata"></video>
+                   src="case2.mp4" muted loop playsinline preload="auto"></video>
             <div class="absolute top-3 left-3 z-10 inline-flex items-center rounded-full border border-blaze/50 bg-mirage/70 backdrop-blur-sm px-3 py-1 text-[11px] font-semibold text-blaze">Ниша: Авто / Тренды</div>
             <div class="absolute bottom-3 right-3 z-10 grid place-items-center w-8 h-8 rounded-full border border-white/20 bg-mirage/70 backdrop-blur-sm text-white/90">
               <svg class="icon-muted" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>
@@ -312,7 +312,7 @@
         <article class="reveal card p-3 group flex flex-col">
           <div class="relative aspect-[9/16] rounded-xl overflow-hidden bg-mirage border border-line">
             <video class="case-video absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                   src="./case3.mp4" muted loop playsinline preload="metadata"></video>
+                   src="case3.mp4" muted loop playsinline preload="auto"></video>
             <div class="absolute top-3 left-3 z-10 inline-flex items-center rounded-full border border-blaze/50 bg-mirage/70 backdrop-blur-sm px-3 py-1 text-[11px] font-semibold text-blaze">Ниша: Автоподбор / Услуги</div>
             <div class="absolute bottom-3 right-3 z-10 grid place-items-center w-8 h-8 rounded-full border border-white/20 bg-mirage/70 backdrop-blur-sm text-white/90">
               <svg class="icon-muted" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>
@@ -328,7 +328,7 @@
         <article class="reveal card p-3 group flex flex-col">
           <div class="relative aspect-[9/16] rounded-xl overflow-hidden bg-mirage border border-line">
             <video class="case-video absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                   src="./case4.mp4" muted loop playsinline preload="metadata"></video>
+                   src="case4.mp4" muted loop playsinline preload="auto"></video>
             <div class="absolute top-3 left-3 z-10 inline-flex items-center rounded-full border border-blaze/50 bg-mirage/70 backdrop-blur-sm px-3 py-1 text-[11px] font-semibold text-blaze">Ниша: Личный бренд / Эксперты</div>
             <div class="absolute bottom-3 right-3 z-10 grid place-items-center w-8 h-8 rounded-full border border-white/20 bg-mirage/70 backdrop-blur-sm text-white/90">
               <svg class="icon-muted" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>
@@ -495,11 +495,24 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     // Case videos: play on hover, pause + reset on leave
-    document.querySelectorAll('article .case-video').forEach((video) => {
+    const caseVideos = document.querySelectorAll('#cases .case-video');
+    caseVideos.forEach((video) => {
       const card = video.closest('article');
+      if (!card) { console.error('[AKU cases] Не найдена карточка для видео:', video.currentSrc || video.src); return; }
+
+      // Force the first frame to paint so the player isn't black before hover.
+      video.addEventListener('loadeddata', () => {
+        try { video.currentTime = 0; } catch (e) { /* noop */ }
+      });
+      video.addEventListener('error', () => {
+        console.error('[AKU cases] Видео не загрузилось:', video.getAttribute('src'), video.error);
+      });
+
       card.addEventListener('mouseenter', () => {
         const p = video.play();
-        if (p && typeof p.catch === 'function') p.catch(() => {}); // ignore autoplay rejections
+        if (p && typeof p.catch === 'function') {
+          p.catch((err) => console.error('[AKU cases] play() заблокирован браузером:', video.getAttribute('src'), err));
+        }
       });
       card.addEventListener('mouseleave', () => {
         video.pause();
