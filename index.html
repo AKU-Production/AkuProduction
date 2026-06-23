@@ -270,37 +270,73 @@
       <div class="reveal max-w-2xl">
         <span class="text-sm font-semibold uppercase tracking-widest text-blaze">Кейсы</span>
         <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl">Работы, которые приносят результат</h2>
-        <p class="mt-4 text-gray-400">Портфолио по нишам. Скоро здесь появятся реальные проекты и метрики.</p>
+        <p class="mt-4 text-gray-400">Портфолио по нишам. Наведите курсор на карточку, чтобы посмотреть ролик.</p>
       </div>
 
-      <div class="mt-14 grid md:grid-cols-2 gap-6">
-        <article class="reveal card p-3 group">
-          <div class="relative aspect-video rounded-xl bg-gradient-to-br from-surface to-mirage border border-line overflow-hidden grid place-items-center">
-            <div class="absolute top-4 left-4 inline-flex items-center rounded-full border border-blaze/40 bg-mirage/60 px-3 py-1 text-xs text-blaze">Ниша: Автохаусы</div>
-            <div class="absolute top-4 right-4 inline-flex items-center rounded-full border border-line bg-mirage/60 px-3 py-1 text-xs text-gray-400">Reels · Продакшн</div>
-            <span class="text-sm text-gray-500 px-6 text-center">[Блок для кейсов: контент будет добавлен позже]</span>
-            <div class="absolute bottom-4 left-4 grid place-items-center w-12 h-12 rounded-full border border-blaze/50 text-blaze opacity-80 group-hover:scale-110 transition">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+
+        <!-- CASE 1 -->
+        <article class="reveal card p-3 group flex flex-col">
+          <div class="relative aspect-[9/16] rounded-xl overflow-hidden bg-mirage border border-line">
+            <video class="case-video absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                   src="./case1.mp4" muted loop playsinline preload="metadata"></video>
+            <div class="absolute top-3 left-3 z-10 inline-flex items-center rounded-full border border-blaze/50 bg-mirage/70 backdrop-blur-sm px-3 py-1 text-[11px] font-semibold text-blaze">Ниша: Автохаусы / Пригон авто</div>
+            <!-- muted / interactive-video hint -->
+            <div class="absolute bottom-3 right-3 z-10 grid place-items-center w-8 h-8 rounded-full border border-white/20 bg-mirage/70 backdrop-blur-sm text-white/90">
+              <svg class="icon-muted" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>
             </div>
           </div>
-          <div class="p-4">
-            <h3 class="font-display font-bold text-lg">Контент для автодилера</h3>
-            <p class="mt-1 text-sm text-gray-400">Серия динамичных Reels с выездных съёмок: динамика, обзоры, спецпредложения.</p>
+          <div class="p-3 pt-4 flex-1">
+            <h3 class="font-display font-bold text-base leading-snug">Динамичный обзор премиум-сегмента</h3>
+            <p class="mt-2 text-sm text-gray-400 leading-relaxed">Сложный монтаж, акцент на интершумах двигателя и выхлопа, сочная цветокоррекция.</p>
           </div>
         </article>
 
-        <article class="reveal card p-3 group">
-          <div class="relative aspect-video rounded-xl bg-gradient-to-br from-surface to-mirage border border-line overflow-hidden grid place-items-center">
-            <div class="absolute top-4 left-4 inline-flex items-center rounded-full border border-blaze/40 bg-mirage/60 px-3 py-1 text-xs text-blaze">Ниша: Недвижимость</div>
-            <div class="absolute top-4 right-4 inline-flex items-center rounded-full border border-line bg-mirage/60 px-3 py-1 text-xs text-gray-400">ИИ-аватар</div>
-            <span class="text-sm text-gray-500 px-6 text-center">[Блок для кейсов: контент будет добавлен позже]</span>
-            <div class="absolute bottom-4 left-4 grid place-items-center w-12 h-12 rounded-full border border-blaze/50 text-blaze opacity-80 group-hover:scale-110 transition">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        <!-- CASE 2 -->
+        <article class="reveal card p-3 group flex flex-col">
+          <div class="relative aspect-[9/16] rounded-xl overflow-hidden bg-mirage border border-line">
+            <video class="case-video absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                   src="./case2.mp4" muted loop playsinline preload="metadata"></video>
+            <div class="absolute top-3 left-3 z-10 inline-flex items-center rounded-full border border-blaze/50 bg-mirage/70 backdrop-blur-sm px-3 py-1 text-[11px] font-semibold text-blaze">Ниша: Авто / Тренды</div>
+            <div class="absolute bottom-3 right-3 z-10 grid place-items-center w-8 h-8 rounded-full border border-white/20 bg-mirage/70 backdrop-blur-sm text-white/90">
+              <svg class="icon-muted" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>
             </div>
           </div>
-          <div class="p-4">
-            <h3 class="font-display font-bold text-lg">Эксперт-аватар для агентства</h3>
-            <p class="mt-1 text-sm text-gray-400">Экспертные видео на цифровом двойнике: обзоры объектов и ответы на вопросы 24/7.</p>
+          <div class="p-3 pt-4 flex-1">
+            <h3 class="font-display font-bold text-base leading-snug">Эстетика в деталях: BMW</h3>
+            <p class="mt-2 text-sm text-gray-400 leading-relaxed">Макросъёмка экстерьера и интерьера, передающая премиальный статус и характер автомобиля.</p>
+          </div>
+        </article>
+
+        <!-- CASE 3 -->
+        <article class="reveal card p-3 group flex flex-col">
+          <div class="relative aspect-[9/16] rounded-xl overflow-hidden bg-mirage border border-line">
+            <video class="case-video absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                   src="./case3.mp4" muted loop playsinline preload="metadata"></video>
+            <div class="absolute top-3 left-3 z-10 inline-flex items-center rounded-full border border-blaze/50 bg-mirage/70 backdrop-blur-sm px-3 py-1 text-[11px] font-semibold text-blaze">Ниша: Автоподбор / Услуги</div>
+            <div class="absolute bottom-3 right-3 z-10 grid place-items-center w-8 h-8 rounded-full border border-white/20 bg-mirage/70 backdrop-blur-sm text-white/90">
+              <svg class="icon-muted" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>
+            </div>
+          </div>
+          <div class="p-3 pt-4 flex-1">
+            <h3 class="font-display font-bold text-base leading-snug">Коммерческий кейс: Dodge RAM</h3>
+            <p class="mt-2 text-sm text-gray-400 leading-relaxed">Обзор крупного проекта с фокусом на надёжность компании, выгоду и эмоции клиента.</p>
+          </div>
+        </article>
+
+        <!-- CASE 4 -->
+        <article class="reveal card p-3 group flex flex-col">
+          <div class="relative aspect-[9/16] rounded-xl overflow-hidden bg-mirage border border-line">
+            <video class="case-video absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                   src="./case4.mp4" muted loop playsinline preload="metadata"></video>
+            <div class="absolute top-3 left-3 z-10 inline-flex items-center rounded-full border border-blaze/50 bg-mirage/70 backdrop-blur-sm px-3 py-1 text-[11px] font-semibold text-blaze">Ниша: Личный бренд / Эксперты</div>
+            <div class="absolute bottom-3 right-3 z-10 grid place-items-center w-8 h-8 rounded-full border border-white/20 bg-mirage/70 backdrop-blur-sm text-white/90">
+              <svg class="icon-muted" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>
+            </div>
+          </div>
+          <div class="p-3 pt-4 flex-1">
+            <h3 class="font-display font-bold text-base leading-snug">Разоблачение: Доверяйте, но проверяйте</h3>
+            <p class="mt-2 text-sm text-gray-400 leading-relaxed">Работа со сценарием, триггерами удержания внимания, умными субтитрами и динамичной графикой.</p>
           </div>
         </article>
       </div>
@@ -457,6 +493,19 @@
       });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Case videos: play on hover, pause + reset on leave
+    document.querySelectorAll('article .case-video').forEach((video) => {
+      const card = video.closest('article');
+      card.addEventListener('mouseenter', () => {
+        const p = video.play();
+        if (p && typeof p.catch === 'function') p.catch(() => {}); // ignore autoplay rejections
+      });
+      card.addEventListener('mouseleave', () => {
+        video.pause();
+        video.currentTime = 0;
+      });
+    });
   </script>
 </body>
 </html>
